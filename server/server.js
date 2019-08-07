@@ -26,16 +26,12 @@ app.get('/first-train', (req,res) => {
 }); 
 
 app.get('/last-train', (req,res) => {
-    res.send(trains[3]);
+    res.send(trains[trains.length-1]);
 });
 
 // counts number of trains and returns the object
 app.get('/count', (req,res) => {
-    let numberOfTrains = trains.length; 
-    const numberOfTrainsObj = { 
-        totalCount: numberOfTrains
-    };
-    res.send(numberOfTrainsObj); 
+    res.send({totalCount: trains.length}); 
 });
 
 app.get('/random', (req,res) => {
